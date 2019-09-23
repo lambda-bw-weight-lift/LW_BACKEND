@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "userworkouts")
@@ -15,9 +17,9 @@ public class UserWorkout extends Auditable {
 
     private String workoutname;
 
-    private Date workoutdate;
+    Date date = new Date();
 
-    private Time workoutlenght;
+    private String workoutlenght;
 
     @ManyToOne
     @JoinColumn(name = "userid",
@@ -25,14 +27,22 @@ public class UserWorkout extends Auditable {
     @JsonIgnoreProperties("userworkouts")
     private User user;
 
+
+    @OneToMany(mappedBy = "userworkout",
+            cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("userworkout")
+    private List<Exercise> exercises = new ArrayList<>();
+
     public UserWorkout() {
+
     }
 
-    public UserWorkout(String workoutname, Date workoutdate, Time workoutlenght, User user) {
+
+    public UserWorkout( User user, String workoutname, String workoutlenght) {
         this.workoutname = workoutname;
-        this.workoutdate = workoutdate;
+
         this.workoutlenght = workoutlenght;
-      this.user = user;
+        this.user = user;
     }
 
     public long getWorkoutid() {
@@ -51,19 +61,19 @@ public class UserWorkout extends Auditable {
         this.workoutname = workoutname;
     }
 
-    public Date getWorkoutdate() {
-        return workoutdate;
+    public Date getDate() {
+        return date;
     }
 
-    public void setWorkoutdate(Date workoutdate) {
-        this.workoutdate = workoutdate;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
-    public Time getWorkoutlenght() {
+    public String getWorkoutlenght() {
         return workoutlenght;
     }
 
-    public void setWorkoutlenght(Time workoutlenght) {
+    public void setWorkoutlenght(String workoutlenght) {
         this.workoutlenght = workoutlenght;
     }
 

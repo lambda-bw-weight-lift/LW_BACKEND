@@ -5,6 +5,7 @@ import com.lambdaschool.liftingweights.exceptions.ResourceNotFoundException;
 import com.lambdaschool.liftingweights.models.Role;
 import com.lambdaschool.liftingweights.models.User;
 import com.lambdaschool.liftingweights.models.UserRoles;
+import com.lambdaschool.liftingweights.models.UserWorkout;
 import com.lambdaschool.liftingweights.models.Useremail;
 import com.lambdaschool.liftingweights.repository.RoleRepository;
 import com.lambdaschool.liftingweights.repository.UserRepository;
@@ -107,6 +108,12 @@ public class UserServiceImpl implements UserDetailsService, UserService
         {
             newUser.getUseremails()
                    .add(new Useremail(newUser, ue.getUseremail()));
+        }
+
+        for (UserWorkout uw : user.getUserworkouts())
+        {
+            newUser.getUserworkouts()
+                    .add(new UserWorkout(newUser, uw.getWorkoutname(), uw.getWorkoutlenght()));
         }
 
         return userrepos.save(newUser);

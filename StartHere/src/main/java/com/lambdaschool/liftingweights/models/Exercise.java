@@ -27,10 +27,10 @@ public class Exercise {
     @Column(nullable = false)
     private String exerciseregion;
 
-//    @ManyToOne
-//    @JoinColumn(name = "")
-//    @JsonIgnoreProperties("exercises")
-//    private Workout workout;
+    @ManyToOne
+    @JoinColumn(name = "workoutid")
+    @JsonIgnoreProperties("exercises")
+    private UserWorkout userworkout;
 
 
     public Exercise() {
