@@ -1,8 +1,13 @@
 package com.lambdaschool.liftingweights.services;
 
+import com.lambdaschool.liftingweights.models.Exercise;
+import com.lambdaschool.liftingweights.models.UserWorkout;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
-public class UserWorkoutImpl implements UserWorkout{
+@Service(value = "userWorkoutService")
+public class UserWorkoutServiceImpl implements UserWorkoutService {
     @Override
     public List<UserWorkout> findAll() {
         return null;
@@ -19,7 +24,7 @@ public class UserWorkoutImpl implements UserWorkout{
     }
 
     @Override
-    public UserWorkout save(UserWorkout customer) {
+    public UserWorkout saveExerciseToWorkout(long workoutid, Exercise exercise) {
         return null;
     }
 

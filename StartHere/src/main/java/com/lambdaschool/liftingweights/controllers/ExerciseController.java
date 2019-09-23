@@ -23,14 +23,6 @@ public class ExerciseController {
 
     // DELETE https://weight-lifting-journal-bw.herokuapp.com/exercise/{date}/{id} - delete the current exercise
 
-
-
-
-    // for workout endpoints
-
-//    https://weight-lifting-journal-bw.herokuapp.com/
-//    1. GET workouts/{userid}/previous - lists all previous workouts
-//    2. GET workouts/{userid}/previous/{date} - lists all exercises for a specific past workout
-//    3. POST workouts/{userid}/exercise/{date} - add a new exercise to the current workout
-
+// multiple workouts per day, so must be able to handle multiple workouts for one day
+    // id is already auto generated
 }
