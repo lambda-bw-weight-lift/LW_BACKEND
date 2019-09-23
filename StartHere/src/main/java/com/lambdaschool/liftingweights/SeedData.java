@@ -62,12 +62,15 @@ public class SeedData implements CommandLineRunner
         ArrayList<UserRoles> users = new ArrayList<>();
         users.add(new UserRoles(new User(), r2));
         User u3 = new User("barnbarn", "ILuvM4th!", users);
+
         u3.getUseremails()
           .add(new Useremail(u3, "barnbarn@email.local"));
        u3.getUserworkouts()
                .add(new UserWorkout(u3,"Legs and Back", "01:20:30"));
         u3.getUserworkouts()
                 .add(new UserWorkout(u3,"Weights", "01:20:30"));
+
+
 
 
 

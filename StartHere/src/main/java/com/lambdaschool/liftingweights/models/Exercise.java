@@ -32,11 +32,16 @@ public class Exercise {
     @JsonIgnoreProperties("exercises")
     private UserWorkout userworkout;
 
+    @ManyToOne
+    @JoinColumn(name = "userid",
+            nullable = false)
+    @JsonIgnoreProperties("exercises")
+    private User user;
 
     public Exercise() {
     }
 
-    public Exercise(String exercisename, String weightlifted, String reps, String restperiod, String exerciseregion) {
+    public Exercise(String exercisename, String weightlifted, String reps, String restperiod, String exerciseregion, UserWorkout userworkout) {
         this.exercisename = exercisename;
         this.weightlifted = weightlifted;
         this.reps = reps;
