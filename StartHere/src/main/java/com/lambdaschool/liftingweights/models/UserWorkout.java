@@ -19,7 +19,7 @@ public class UserWorkout extends Auditable {
 
     Date date = new Date();
 
-    private String workoutlenght;
+    private String workoutlength;
 
     @ManyToOne
     @JoinColumn(name = "userid",
@@ -38,10 +38,10 @@ public class UserWorkout extends Auditable {
     }
 
 
-    public UserWorkout( User user, String workoutname, String workoutlenght) {
+    public UserWorkout( User user, String workoutname, String workoutlength) {
         this.workoutname = workoutname;
 
-        this.workoutlenght = workoutlenght;
+        this.workoutlength = workoutlength;
         this.user = user;
     }
 
@@ -69,12 +69,12 @@ public class UserWorkout extends Auditable {
         this.date = date;
     }
 
-    public String getWorkoutlenght() {
-        return workoutlenght;
+    public String getWorkoutlength() {
+        return workoutlength;
     }
 
-    public void setWorkoutlenght(String workoutlenght) {
-        this.workoutlenght = workoutlenght;
+    public void setWorkoutlength(String workoutlength) {
+        this.workoutlength = workoutlength;
     }
 
     public User getUser() {
