@@ -1,8 +1,11 @@
 package com.lambdaschool.liftingweights.services;
 
+import com.lambdaschool.liftingweights.models.Exercise;
+import com.lambdaschool.liftingweights.models.UserWorkout;
+
 import java.util.List;
 
-public interface UserWorkout {
+public interface UserWorkoutService {
 
     List<UserWorkout> findAll();
 
@@ -10,7 +13,7 @@ public interface UserWorkout {
 
     void delete(long workoutid);
 
-    UserWorkout save(UserWorkout customer);
+    UserWorkout saveExerciseToWorkout(long workoutid, Exercise exercise);
 
     UserWorkout update(UserWorkout customer, long id);
 
