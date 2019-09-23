@@ -4,6 +4,7 @@ import com.lambdaschool.liftingweights.models.User;
 import com.lambdaschool.liftingweights.models.UserRoles;
 import com.lambdaschool.liftingweights.services.RoleService;
 import com.lambdaschool.liftingweights.services.UserService;
+import org.springframework.ui.Model;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,4 +69,6 @@ public class OpenController
     {
         logger.trace("favicon.ico endpoint accessed!");
     }
+
+
 }
