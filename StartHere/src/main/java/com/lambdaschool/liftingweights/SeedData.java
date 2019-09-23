@@ -1,9 +1,6 @@
 package com.lambdaschool.liftingweights;
 
-import com.lambdaschool.liftingweights.models.Role;
-import com.lambdaschool.liftingweights.models.User;
-import com.lambdaschool.liftingweights.models.UserRoles;
-import com.lambdaschool.liftingweights.models.Useremail;
+import com.lambdaschool.liftingweights.models.*;
 import com.lambdaschool.liftingweights.services.RoleService;
 import com.lambdaschool.liftingweights.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,6 +64,13 @@ public class SeedData implements CommandLineRunner
         User u3 = new User("barnbarn", "ILuvM4th!", users);
         u3.getUseremails()
           .add(new Useremail(u3, "barnbarn@email.local"));
+       u3.getUserworkouts()
+               .add(new UserWorkout(u3,"Legs and Back", "01:20:30"));
+        u3.getUserworkouts()
+                .add(new UserWorkout(u3,"Weights", "01:20:30"));
+
+
+
         userService.save(u3);
 
         users = new ArrayList<>();
