@@ -2,6 +2,8 @@ package com.lambdaschool.liftingweights.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -19,10 +21,13 @@ public class User extends Auditable
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long userid;
 
+
+    @ApiModelProperty(notes = "Unique username is required", example = "Bobby", required = true)
     @Column(nullable = false,
             unique = true)
     private String username;
 
+    @ApiModelProperty(notes = "Password is required", example = "password", required = true)
     @Column(nullable = false)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
@@ -32,11 +37,14 @@ public class User extends Auditable
     @JsonIgnoreProperties("user")
     private List<UserRoles> userroles = new ArrayList<>();
 
+    @ApiModelProperty(notes = "email is not required", example = "email@email.com", required = false)
     @OneToMany(mappedBy = "user",
                cascade = CascadeType.ALL,
                orphanRemoval = true)
     @JsonIgnoreProperties("user")
     private List<Useremail> useremails = new ArrayList<>();
+
+
 
     public User()
     {
