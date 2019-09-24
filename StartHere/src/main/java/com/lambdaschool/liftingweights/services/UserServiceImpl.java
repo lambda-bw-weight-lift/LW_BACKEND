@@ -105,7 +105,6 @@ public class UserServiceImpl implements UserDetailsService, UserService
             newUser.getUseremails()
                    .add(new Useremail(newUser, ue.getUseremail()));
         }
-
         for (UserWorkout uw : user.getUserworkouts())
         {
 
@@ -113,6 +112,7 @@ public class UserServiceImpl implements UserDetailsService, UserService
                     .add(new UserWorkout(newUser, uw.getWorkoutname(), uw.getWorkoutlength()));
 
         }
+
 
         return userrepos.save(newUser);
     }

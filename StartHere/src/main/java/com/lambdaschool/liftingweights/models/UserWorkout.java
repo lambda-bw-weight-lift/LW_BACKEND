@@ -21,7 +21,7 @@ public class UserWorkout extends Auditable {
     private String workoutlength;
 
     @ManyToOne
-    @JoinColumn(name = "userid",
+    @JoinColumn(name = "user",
             nullable = false)
     @JsonIgnoreProperties("userworkouts")
     private User user;

@@ -33,14 +33,14 @@ public class User extends Auditable
     private String password;
 
     @OneToMany(mappedBy = "user",
-               cascade = CascadeType.ALL)
+            cascade = CascadeType.ALL)
     @JsonIgnoreProperties("user")
     private List<UserRoles> userroles = new ArrayList<>();
 
     @ApiModelProperty(notes = "email is not required", example = "email@email.com", required = false)
     @OneToMany(mappedBy = "user",
-               cascade = CascadeType.ALL,
-               orphanRemoval = true)
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
     @JsonIgnoreProperties("user")
     private List<Useremail> useremails = new ArrayList<>();
 
@@ -50,11 +50,6 @@ public class User extends Auditable
     @JsonIgnoreProperties("user")
     private List<UserWorkout> userworkouts = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true  )
-    @JsonIgnoreProperties("user")
-    private List<Exercise> exercises = new ArrayList<>();
 
 
     public User()
@@ -143,21 +138,14 @@ public class User extends Auditable
         for (UserRoles r : this.userroles)
         {
             String myRole = "ROLE_" + r.getRole()
-                                       .getName()
-                                       .toUpperCase();
+                    .getName()
+                    .toUpperCase();
             rtnList.add(new SimpleGrantedAuthority(myRole));
         }
 
         return rtnList;
     }
 
-    public List<Exercise> getExercises() {
-        return exercises;
-    }
-
-    public void setExercises(List<Exercise> exercises) {
-        this.exercises = exercises;
-    }
 
     @Override
     public String toString()

@@ -70,20 +70,20 @@ public class WorkoutController {
     }
 
 
-   //  POST /workouts/current - create a new workout 201 & 500
+    //  POST /workouts/current - create a new workout 201 & 500
     @ApiOperation(value = "Creates a new Workout", response = UserWorkout.class)
     @ApiResponses(value = {
             @ApiResponse(code = 201, response = UserWorkout.class, message = "It worked!"),
             @ApiResponse(code = 500, message = "Error creating a new workout.", response = ErrorDetail.class)
     })
-    @PostMapping(value = "/current/{userid", produces = {"application/json"})
+    @PostMapping(value = "/current/{username}", produces = {"application/json"})
     public ResponseEntity<?> createNewWorkout(@Valid @RequestBody UserWorkout newWorkout, @PathVariable String username) {
-        UserWorkout workout = workoutService.saveWorkout(newWorkout, username);
-        return new ResponseEntity<>(workout, HttpStatus.CREATED);
+        workoutService.saveWorkout(newWorkout, username);
+        return new ResponseEntity<>( null, HttpStatus.CREATED);
     }
 
 
-   //  POST /workouts/{workoutid} - add a new exercise to the workout
+    //  POST /workouts/{workoutid} - add a new exercise to the workout
     @ApiOperation(value = "updates workout with a new exercise", response = UserWorkout.class, responseContainer = "List")
     @ApiResponses(value = {
             @ApiResponse(code = 202, message = "Exercise successfully added to existing workout", response = void.class),
@@ -91,8 +91,8 @@ public class WorkoutController {
     })
     @PostMapping(value = "/workouts/{workoutid}", produces = {"application/json"})
     public ResponseEntity<?> updateWorkoutExercise(@Valid
-                                              @RequestBody Exercise updateExercise,
-                                              @PathVariable long workoutid, HttpServletRequest request) {
+                                                   @RequestBody Exercise updateExercise,
+                                                   @PathVariable long workoutid, HttpServletRequest request) {
         logger.trace(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed.");
 
         workoutService.saveExerciseToWorkout(workoutid, updateExercise);
