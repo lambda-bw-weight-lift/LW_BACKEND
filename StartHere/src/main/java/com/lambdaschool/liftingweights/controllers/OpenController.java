@@ -1,6 +1,7 @@
 package com.lambdaschool.liftingweights.controllers;
 
 import com.lambdaschool.liftingweights.models.User;
+import com.lambdaschool.liftingweights.models.UserMinimum;
 import com.lambdaschool.liftingweights.models.UserRoles;
 import com.lambdaschool.liftingweights.services.RoleService;
 import com.lambdaschool.liftingweights.services.UserService;
@@ -39,28 +40,27 @@ public class OpenController
     private RoleService roleService;
 
     @PostMapping(value = "/createnewuser",
-                 consumes = {"application/json"},
-                 produces = {"application/json"})
+            consumes = {"application/json"},
+            produces = {"application/json"})
     public ResponseEntity<?> addNewUser(HttpServletRequest request, @Valid
     @RequestBody
-            User newuser) throws URISyntaxException
+            UserMinimum newminuser) throws URISyntaxException
     {
         logger.trace(request.getMethod()
                             .toUpperCase() + " " + request.getRequestURI() + " accessed");
-
+        User newuser = new User();
+        newuser.setUsername(newminuser.getUsername());
+        newuser.setPassword(newminuser.getPassword());
         ArrayList<UserRoles> newRoles = new ArrayList<>();
         newRoles.add(new UserRoles(newuser, roleService.findByName("user")));
         newuser.setUserroles(newRoles);
-
         newuser = userService.save(newuser);
-
         // set the location header for the newly created resource - to another controller!
         HttpHeaders responseHeaders = new HttpHeaders();
         URI newRestaurantURI = ServletUriComponentsBuilder.fromUriString(request.getServerName() + ":" + request.getLocalPort() + "/users/user/{userId}")
                                                           .buildAndExpand(newuser.getUserid())
                                                           .toUri();
         responseHeaders.setLocation(newRestaurantURI);
-
         return new ResponseEntity<>(null, responseHeaders, HttpStatus.CREATED);
     }
 
