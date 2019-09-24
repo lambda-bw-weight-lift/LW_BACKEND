@@ -30,7 +30,7 @@ public class UserWorkoutServiceImpl implements UserWorkoutService {
     UserRepository userrepos;
 
     @Override
-    public List<UserWorkout> findAll(Pageable pageable) {
+    public List<UserWorkout> findAllWorkouts(Pageable pageable) {
         List<UserWorkout> myWorkouts = new ArrayList<>();
         userworkoutrepos.findAll(pageable).iterator().forEachRemaining(myWorkouts::add);
         return myWorkouts;
@@ -38,11 +38,17 @@ public class UserWorkoutServiceImpl implements UserWorkoutService {
 
     @Override
     public UserWorkout findWorkoutByName(String name) {
+
         return null;
     }
 
     @Override
     public void delete(long workoutid) {
+        if (userworkoutrepos.findById(workoutid).isPresent()) {
+            userworkoutrepos.deleteById(workoutid);
+        } else {
+            throw new ResourceNotFoundException("Workout id " + workoutid + " not found.");
+        }
 
     }
 
@@ -73,7 +79,7 @@ public class UserWorkoutServiceImpl implements UserWorkoutService {
 
     @Override
     public UserWorkout findById(long workoutid) throws ResourceNotFoundException {
-        return userworkoutrepo.findById(workoutid)
+        return userworkoutrepos.findById(workoutid)
                 .orElseThrow(() -> new ResourceNotFoundException("Workout id" + workoutid + "not Found!"));
     }
 

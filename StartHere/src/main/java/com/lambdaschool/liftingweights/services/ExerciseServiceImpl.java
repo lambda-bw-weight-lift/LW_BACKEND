@@ -68,6 +68,10 @@ public class ExerciseServiceImpl implements ExerciseService {
     @Transactional
     @Override
     public void delete(long id) {
-        exerciserepos.findById(id).orElseThrow(() -> new ResourceNotFoundException("Exercise id " + id + " not found!"));
+        if (exerciserepos.findById(id).isPresent()) {
+            exerciserepos.deleteById(id);
+        } else {
+            throw new ResourceNotFoundException("Workout id " + id + " not found.");
+        }
     }
 }

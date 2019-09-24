@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface UserWorkoutService {
 
-    List<UserWorkout> findAll(Pageable pageable);
+    List<UserWorkout> findAllWorkouts(Pageable pageable);
 
     UserWorkout findWorkoutByName(String name);
 
