@@ -110,6 +110,7 @@ public class SeedData implements CommandLineRunner
 
 //        List<UserWorkout> workout1 = new ArrayList<>();
 
+
 //        UserWorkout workout1 = new UserWorkout();
 //
 //        workoutService.saveWorkout(workout1);
@@ -117,6 +118,7 @@ public class SeedData implements CommandLineRunner
 //        workoutService.saveExerciseToWorkout(1, e1);
 //        workoutService.saveExerciseToWorkout(1, e2);
 //        workoutService.saveExerciseToWorkout(1, e3);
+
 
     }
 }

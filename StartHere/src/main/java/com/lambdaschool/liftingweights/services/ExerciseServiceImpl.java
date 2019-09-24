@@ -5,6 +5,7 @@ import com.lambdaschool.liftingweights.exceptions.ResourceNotFoundException;
 import com.lambdaschool.liftingweights.models.Exercise;
 import com.lambdaschool.liftingweights.repository.ExerciseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,9 +20,9 @@ public class ExerciseServiceImpl implements ExerciseService {
 
 
     @Override
-    public List<Exercise> findAllExercises() {
+    public List<Exercise> findAllExercises(Pageable pageable) {
         List<Exercise> myExercises = new ArrayList<>();
-        exerciserepos.findAll().iterator().forEachRemaining(myExercises::add);
+        exerciserepos.findAll(pageable).iterator().forEachRemaining(myExercises::add);
         return myExercises;
     }
 
