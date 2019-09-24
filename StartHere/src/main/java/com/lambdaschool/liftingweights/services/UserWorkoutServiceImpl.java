@@ -37,12 +37,6 @@ public class UserWorkoutServiceImpl implements UserWorkoutService {
     }
 
     @Override
-    public UserWorkout findWorkoutByName(String name) {
-
-        return null;
-    }
-
-    @Override
     public void delete(long workoutid) {
         if (userworkoutrepos.findById(workoutid).isPresent()) {
             userworkoutrepos.deleteById(workoutid);
@@ -85,8 +79,18 @@ public class UserWorkoutServiceImpl implements UserWorkoutService {
 
 
     @Override
-    public UserWorkout update(UserWorkout customer, long id) {
-        return null;
+    public UserWorkout update(UserWorkout workout, long id) {
+
+        UserWorkout currentWorkout = userworkoutrepos.findById(id).orElseThrow(() -> new ResourceNotFoundException("Workout id " + id + " now found."));
+
+        if (workout.getWorkoutname() != null) {
+            currentWorkout.setWorkoutname(workout.getWorkoutname());
+        }
+        if (workout.getWorkoutlength() != null) {
+            currentWorkout.setWorkoutlength(workout.getWorkoutlength());
+        }
+
+        return userworkoutrepos.save(currentWorkout);
     }
 
 

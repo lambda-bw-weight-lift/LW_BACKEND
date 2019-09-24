@@ -10,17 +10,13 @@ public interface UserWorkoutService {
 
     List<UserWorkout> findAllWorkouts(Pageable pageable);
 
-    UserWorkout findWorkoutByName(String name);
-
-//    UserWorkout findById(long id);
-
     void delete(long workoutid);
 
-    UserWorkout saveWorkout(UserWorkout workout,String username);
+    UserWorkout saveWorkout(UserWorkout workout, String username);
 
     UserWorkout saveExerciseToWorkout(long workoutid, Exercise exercise);
 
-    UserWorkout update(UserWorkout customer, long id);
+    UserWorkout update(UserWorkout workout, long id);
 
     UserWorkout findById(long workoutid);
 
