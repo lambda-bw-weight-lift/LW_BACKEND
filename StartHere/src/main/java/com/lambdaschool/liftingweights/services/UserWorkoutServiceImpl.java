@@ -61,13 +61,16 @@ public class UserWorkoutServiceImpl implements UserWorkoutService {
     }
 
     @Override
-    public UserWorkout saveExerciseToWorkout(long workoutid, Exercise exercise) {
-        UserWorkout uw = userworkoutrepos.findById(workoutid)
-                .orElseThrow(() -> new ResourceNotFoundException("Workout id" + workoutid + " not found!"));
-        Exercise ex = new Exercise(exercise.getExercisename(), exercise.getWeightlifted(), exercise.getReps(), exercise.getRestperiod(), exercise.getExerciseregion());
-
-        uw.getExercises().add(ex);
-        return userworkoutrepos.save(uw);
+    public void saveExerciseToWorkout(long workoutid, Exercise exercise) {
+//        UserWorkout uw = userworkoutrepos.findById(workoutid)
+//                .orElseThrow(() -> new ResourceNotFoundException("Workout id" + workoutid + " not found!"));
+//        Exercise ex = new Exercise(exercise.getExercisename(), exercise.getWeightlifted(), exercise.getReps(), exercise.getRestperiod(), exercise.getExerciseregion());
+//
+//        uw.getExercises().add(ex);
+        System.out.println(exercise);
+        System.out.println(workoutid);
+        userworkoutrepos.insertExerciseIntoWorkout(workoutid, exercise);
+//        return userworkoutrepos.save(uw);
     }
 
 

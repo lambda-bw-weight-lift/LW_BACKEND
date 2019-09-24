@@ -45,5 +45,21 @@ POST | `/workouts/current` | creates a new workout
 POST | `/workouts/{workoutid}` | adds a new exercise to the specified workout
 
 ### Accepted Workouts Schema
+
+#### POST `/workouts/current`
 ```
+{
+	"workoutname": "Pull-ups & chin-ups",
+	"workoutlength": "2 minutes"
+}
+```
+#### POST `workouts/{workoutid}`
+```
+{
+	"exercisename": "Pull-ups",
+	"weightlifted": "Body weight",
+	"reps": "3 x 10",
+	"restperiod": "3 minutes",
+	"exerciseregion": "Upper Body"
+}
 ```

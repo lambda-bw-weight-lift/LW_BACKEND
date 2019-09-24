@@ -89,13 +89,13 @@ public class WorkoutController {
             @ApiResponse(code = 202, message = "Exercise successfully added to existing workout", response = void.class),
             @ApiResponse(code = 500, message = "Error updating workout exercise", response = ErrorDetail.class)
     })
-    @PostMapping(value = "/workouts/{workoutid}", produces = {"application/json"})
+    @PostMapping(value = "/{workoutid}", consumes = {"application/json"}, produces = {"application/json"})
     public ResponseEntity<?> updateWorkoutExercise(@Valid
-                                                   @RequestBody Exercise updateExercise,
+                                                   @RequestBody Exercise newExercise,
                                                    @PathVariable long workoutid, HttpServletRequest request) {
         logger.trace(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed.");
 
-        workoutService.saveExerciseToWorkout(workoutid, updateExercise);
+        workoutService.saveExerciseToWorkout(workoutid, newExercise);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
