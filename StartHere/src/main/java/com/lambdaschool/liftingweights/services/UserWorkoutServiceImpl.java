@@ -5,6 +5,7 @@ import com.lambdaschool.liftingweights.models.Exercise;
 import com.lambdaschool.liftingweights.models.User;
 import com.lambdaschool.liftingweights.models.UserWorkout;
 import com.lambdaschool.liftingweights.repository.ExerciseRepository;
+import com.lambdaschool.liftingweights.repository.UserRepository;
 import com.lambdaschool.liftingweights.repository.UserWorkoutRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -24,6 +25,9 @@ public class UserWorkoutServiceImpl implements UserWorkoutService {
     @Autowired
     ExerciseRepository exerciserepo;
 
+    @Autowired
+    UserRepository userrepo;
+
     @Override
     public List<UserWorkout> findAll(Pageable pageable) {
         return null;
@@ -41,8 +45,16 @@ public class UserWorkoutServiceImpl implements UserWorkoutService {
 
     @Transactional
     @Override
-    public UserWorkout saveWorkout(UserWorkout workout) {
-        return null;
+    public UserWorkout saveWorkout(UserWorkout workout, String username) {
+        UserWorkout uw = new UserWorkout();
+
+        User user = userrepo.findByUsername(username);
+
+        uw.setWorkoutname(uw.getWorkoutname());
+        uw.setWorkoutlength(uw.getWorkoutlength());
+
+
+        return  userworkoutrepo.save(uw);
     }
 
     @Override

@@ -12,11 +12,11 @@ public interface UserWorkoutService {
 
     UserWorkout findWorkoutByName(String name);
 
-    UserWorkout findById(long id);
+//    UserWorkout findById(long id);
 
     void delete(long workoutid);
 
-    UserWorkout saveWorkout(UserWorkout workout);
+    UserWorkout saveWorkout(UserWorkout workout,String username);
 
     UserWorkout saveExerciseToWorkout(long workoutid, Exercise exercise);
 

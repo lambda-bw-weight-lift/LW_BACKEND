@@ -86,7 +86,7 @@ public class SeedData implements CommandLineRunner
 
 
         userService.save(u3);
-        List <UserWorkout> workouts = userWorkoutService.findAll();
+//        List <UserWorkout> workouts = userWorkoutService.findAll();
 //        UserWorkout w = workouts.get(workouts.size()-1);
 //       userWorkoutService.saveExerciseToWorkout(w.getWorkoutid(), new Exercise("Curls", "25lbs", "12", "25second", "arms"));
 
