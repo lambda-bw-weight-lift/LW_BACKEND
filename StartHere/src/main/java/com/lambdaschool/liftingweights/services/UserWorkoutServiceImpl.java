@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,7 +25,7 @@ public class UserWorkoutServiceImpl implements UserWorkoutService {
     ExerciseRepository exerciserepo;
 
     @Override
-    public List<UserWorkout> findAll() {
+    public List<UserWorkout> findAll(Pageable pageable) {
         return null;
     }
 
@@ -39,6 +40,11 @@ public class UserWorkoutServiceImpl implements UserWorkoutService {
     }
 
     @Transactional
+    @Override
+    public UserWorkout saveWorkout(UserWorkout workout) {
+        return null;
+    }
+
     @Override
     public UserWorkout saveExerciseToWorkout(long workoutid, Exercise exercise) {
         UserWorkout uw = userworkoutrepo.findById(workoutid)

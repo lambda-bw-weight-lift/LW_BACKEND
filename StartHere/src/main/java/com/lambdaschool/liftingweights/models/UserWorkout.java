@@ -89,7 +89,7 @@ public class UserWorkout extends Auditable {
         return user;
     }
 
-    public void setUser_id(User user) {
+    public void setUserid(User user) {
         this.user = user;
     }
 
