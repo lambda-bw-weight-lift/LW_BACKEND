@@ -95,7 +95,7 @@ public class WorkoutController {
                                                    @PathVariable long workoutid, HttpServletRequest request) {
         logger.trace(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed.");
 
-        workoutService.saveExerciseToWorkout(workoutid, updateExercise);
+        workoutService.saveExerciseToWorkout(workoutid , updateExercise);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
