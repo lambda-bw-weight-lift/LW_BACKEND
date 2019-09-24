@@ -2,11 +2,7 @@ package com.lambdaschool.liftingweights.services;
 
 import com.lambdaschool.liftingweights.exceptions.ResourceFoundException;
 import com.lambdaschool.liftingweights.exceptions.ResourceNotFoundException;
-import com.lambdaschool.liftingweights.models.Role;
-import com.lambdaschool.liftingweights.models.User;
-import com.lambdaschool.liftingweights.models.UserRoles;
-import com.lambdaschool.liftingweights.models.UserWorkout;
-import com.lambdaschool.liftingweights.models.Useremail;
+import com.lambdaschool.liftingweights.models.*;
 import com.lambdaschool.liftingweights.repository.RoleRepository;
 import com.lambdaschool.liftingweights.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -112,8 +108,9 @@ public class UserServiceImpl implements UserDetailsService, UserService
 
         for (UserWorkout uw : user.getUserworkouts())
         {
+
             newUser.getUserworkouts()
-                    .add(new UserWorkout(newUser, uw.getWorkoutname(), uw.getWorkoutlenght()));
+                    .add(new UserWorkout(newUser ,uw.getWorkoutname(), uw.getWorkoutlength()));
         }
 
         return userrepos.save(newUser);
