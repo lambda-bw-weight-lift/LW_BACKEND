@@ -51,7 +51,7 @@ public class WorkoutController {
     @GetMapping(value = "/all", produces = {"application/json"})
     public ResponseEntity<?> getAllWorkouts(@PageableDefault(page = 0, size = 5)Pageable pageable) {
         List<UserWorkout> allWorkouts = new ArrayList<>();
-        workoutService.findAll(pageable).iterator().forEachRemaining(allWorkouts::add);
+        workoutService.findAllWorkouts(pageable).iterator().forEachRemaining(allWorkouts::add);
         return new ResponseEntity<>(allWorkouts, HttpStatus.OK);
     }
 
