@@ -1,7 +1,7 @@
 package com.lambdaschool.liftingweights.repository;
 
 import com.lambdaschool.liftingweights.models.Exercise;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
-public interface ExerciseRepository extends CrudRepository<Exercise, Long> {
+public interface ExerciseRepository extends PagingAndSortingRepository<Exercise, Long> {
 }

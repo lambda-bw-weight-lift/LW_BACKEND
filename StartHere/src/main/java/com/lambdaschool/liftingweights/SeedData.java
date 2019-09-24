@@ -1,6 +1,7 @@
 package com.lambdaschool.liftingweights;
 
 import com.lambdaschool.liftingweights.models.*;
+import com.lambdaschool.liftingweights.services.ExerciseService;
 import com.lambdaschool.liftingweights.repository.UserWorkoutRepository;
 import com.lambdaschool.liftingweights.services.RoleService;
 import com.lambdaschool.liftingweights.services.UserService;
@@ -24,7 +25,10 @@ public class SeedData implements CommandLineRunner
     UserService userService;
 
     @Autowired
-    UserWorkoutService userWorkoutService;
+    ExerciseService exerciseService;
+
+    @Autowired
+    UserWorkoutService workoutService;
 
 
     @Override
@@ -86,9 +90,9 @@ public class SeedData implements CommandLineRunner
 
 
         userService.save(u3);
-//        List <UserWorkout> workouts = userWorkoutService.findAll();
+//        List <UserWorkout> workouts = workoutService.findAll();
 //        UserWorkout w = workouts.get(workouts.size()-1);
-//       userWorkoutService.saveExerciseToWorkout(w.getWorkoutid(), new Exercise("Curls", "25lbs", "12", "25second", "arms"));
+//       workoutService.saveExerciseToWorkout(w.getWorkoutid(), new Exercise("Curls", "25lbs", "12", "25second", "arms"));
 
         users = new ArrayList<>();
         users.add(new UserRoles(new User(), r2));
@@ -99,5 +103,20 @@ public class SeedData implements CommandLineRunner
         users.add(new UserRoles(new User(), r2));
         User u5 = new User("Jane", "password", users);
         userService.save(u5);
+
+        Exercise e1 = new Exercise("Bench Press", "165 Lbs", "3 x 10 Reps", "1 Minute Rest", "Chest Region");
+        Exercise e2 = new Exercise("Squat", "200 Lbs", "3 x 5 Reps", "1 Minute Rest", "Legs Region");
+        Exercise e3 = new Exercise("Abs", "Bodyweight", "3 x 10 Reps", "1 Minute Rest", "Core Region");
+
+//        List<UserWorkout> workout1 = new ArrayList<>();
+
+        UserWorkout workout1 = new UserWorkout();
+
+        workoutService.saveWorkout(workout1);
+
+        workoutService.saveExerciseToWorkout(1, e1);
+        workoutService.saveExerciseToWorkout(1, e2);
+        workoutService.saveExerciseToWorkout(1, e3);
+
     }
 }

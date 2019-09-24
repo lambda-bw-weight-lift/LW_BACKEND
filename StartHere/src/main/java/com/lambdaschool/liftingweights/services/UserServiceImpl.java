@@ -110,7 +110,8 @@ public class UserServiceImpl implements UserDetailsService, UserService
         {
 
             newUser.getUserworkouts()
-                    .add(new UserWorkout(newUser ,uw.getWorkoutname(), uw.getWorkoutlength()));
+                    .add(new UserWorkout(newUser, uw.getWorkoutname(), uw.getWorkoutlength()));
+
         }
 
         return userrepos.save(newUser);
