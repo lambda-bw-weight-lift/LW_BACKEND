@@ -106,12 +106,16 @@ public class UserServiceImpl implements UserDetailsService, UserService
                    .add(new Useremail(newUser, ue.getUseremail()));
         }
 
-//        for (UserWorkout uw : user.getUserworkouts())
-//        {
-//
-//            newUser.getUserworkouts()
-//                    .add(new UserWorkout(newUser ,uw.getWorkoutname(), uw.getWorkoutlength()));
-//        }
+
+        for (UserWorkout uw : user.getUserworkouts())
+        {
+
+            newUser.getUserworkouts()
+                    .add(new UserWorkout(newUser, uw.getWorkoutname(), uw.getWorkoutlength()));
+
+        }
+
+
         return userrepos.save(newUser);
     }
 
