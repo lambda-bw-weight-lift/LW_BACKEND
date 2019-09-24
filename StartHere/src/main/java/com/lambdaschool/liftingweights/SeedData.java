@@ -1,14 +1,17 @@
 package com.lambdaschool.liftingweights;
 
 import com.lambdaschool.liftingweights.models.*;
+import com.lambdaschool.liftingweights.services.ExerciseService;
 import com.lambdaschool.liftingweights.services.RoleService;
 import com.lambdaschool.liftingweights.services.UserService;
+import com.lambdaschool.liftingweights.services.UserWorkoutService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Transactional
 @Component
@@ -19,6 +22,12 @@ public class SeedData implements CommandLineRunner
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    ExerciseService exerciseService;
+
+    @Autowired
+    UserWorkoutService workoutService;
 
 
     @Override
@@ -82,5 +91,20 @@ public class SeedData implements CommandLineRunner
         users.add(new UserRoles(new User(), r2));
         User u5 = new User("Jane", "password", users);
         userService.save(u5);
+
+        Exercise e1 = new Exercise("Bench Press", "165 Lbs", "3 x 10 Reps", "1 Minute Rest", "Chest Region");
+        Exercise e2 = new Exercise("Squat", "200 Lbs", "3 x 5 Reps", "1 Minute Rest", "Legs Region");
+        Exercise e3 = new Exercise("Abs", "Bodyweight", "3 x 10 Reps", "1 Minute Rest", "Core Region");
+
+//        List<UserWorkout> workout1 = new ArrayList<>();
+
+        UserWorkout workout1 = new UserWorkout();
+
+        workoutService.saveWorkout(workout1);
+
+        workoutService.saveExerciseToWorkout(1, e1);
+        workoutService.saveExerciseToWorkout(1, e2);
+        workoutService.saveExerciseToWorkout(1, e3);
+
     }
 }
