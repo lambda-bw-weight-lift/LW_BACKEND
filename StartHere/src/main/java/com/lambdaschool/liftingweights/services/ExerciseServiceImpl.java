@@ -52,7 +52,7 @@ public class ExerciseServiceImpl implements ExerciseService {
             currentExercise.setExercisename(exercise.getExercisename());
         }
         if (exercise.getWeightlifted() != null) {
-            currentExercise.setExercisename(exercise.getWeightlifted());
+            currentExercise.setWeightlifted(exercise.getWeightlifted());
         }
         if (exercise.getReps() != null) {
             currentExercise.setReps(exercise.getReps());

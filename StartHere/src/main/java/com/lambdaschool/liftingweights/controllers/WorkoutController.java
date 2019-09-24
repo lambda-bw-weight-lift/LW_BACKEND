@@ -66,6 +66,8 @@ public class WorkoutController {
 
         List<Exercise> allExercises = new ArrayList<>();
 
+        workout.getExercises().iterator().forEachRemaining(allExercises::add);
+
         return new ResponseEntity<>(allExercises, HttpStatus.OK);
     }
 
