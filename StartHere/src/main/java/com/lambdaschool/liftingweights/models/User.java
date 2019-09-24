@@ -50,6 +50,12 @@ public class User extends Auditable
     @JsonIgnoreProperties("user")
     private List<UserWorkout> userworkouts = new ArrayList<>();
 
+    @OneToMany(mappedBy = "user",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true  )
+    @JsonIgnoreProperties("user")
+    private List<Exercise> exercises = new ArrayList<>();
+
 
     public User()
     {
@@ -143,6 +149,14 @@ public class User extends Auditable
         }
 
         return rtnList;
+    }
+
+    public List<Exercise> getExercises() {
+        return exercises;
+    }
+
+    public void setExercises(List<Exercise> exercises) {
+        this.exercises = exercises;
     }
 
     @Override

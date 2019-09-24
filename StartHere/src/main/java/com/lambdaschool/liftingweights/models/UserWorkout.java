@@ -3,7 +3,6 @@ package com.lambdaschool.liftingweights.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -33,6 +32,7 @@ public class UserWorkout extends Auditable {
     @JsonIgnoreProperties("userworkout")
     private List<Exercise> exercises = new ArrayList<>();
 
+
     public UserWorkout() {
 
     }
@@ -43,6 +43,14 @@ public class UserWorkout extends Auditable {
 
         this.workoutlength = workoutlength;
         this.user = user;
+    }
+
+    public List<Exercise> getExercises() {
+        return exercises;
+    }
+
+    public void setExercises(List<Exercise> exercises) {
+        this.exercises = exercises;
     }
 
     public long getWorkoutid() {
@@ -84,4 +92,5 @@ public class UserWorkout extends Auditable {
     public void setUserid(User user) {
         this.user = user;
     }
+
 }
