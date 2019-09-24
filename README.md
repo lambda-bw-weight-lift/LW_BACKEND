@@ -31,8 +31,18 @@ PUT | `/exercise/{exerciseid}` | returns the updated exercise
 DELETE | `/exercise/{exerciseid}` | returns whether or not the exercise has been deleted
 
 ### Accepted Exercise Schema
+
+#### PUT `/exercise/{exerciseid}`
 ```
+{
+	"exercisename": "OLDDDDDD",
+	"weightlifted": "Body weight",
+	"reps": "3 x 10",
+	"restperiod": "3 minutes",
+	"exerciseregion": "Upper Body"
+}
 ```
+
 
 ## Workouts
 #### all endpoints require authorization token
@@ -53,6 +63,7 @@ POST | `/workouts/{workoutid}` | adds a new exercise to the specified workout
 	"workoutlength": "2 minutes"
 }
 ```
+
 #### POST `workouts/{workoutid}`
 ```
 {
