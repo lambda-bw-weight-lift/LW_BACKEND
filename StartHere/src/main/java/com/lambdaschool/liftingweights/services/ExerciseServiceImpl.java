@@ -31,6 +31,8 @@ public class ExerciseServiceImpl implements ExerciseService {
     public Exercise save(Exercise exercise) {
         Exercise newExercise = new Exercise();
 
+
+
         newExercise.setExercisename(exercise.getExercisename());
         newExercise.setWeightlifted(exercise.getWeightlifted());
         newExercise.setReps(exercise.getReps());

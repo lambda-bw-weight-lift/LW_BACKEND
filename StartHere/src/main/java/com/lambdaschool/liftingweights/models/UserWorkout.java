@@ -45,6 +45,10 @@ public class UserWorkout extends Auditable {
         this.user = user;
     }
 
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public List<Exercise> getExercises() {
         return exercises;
     }

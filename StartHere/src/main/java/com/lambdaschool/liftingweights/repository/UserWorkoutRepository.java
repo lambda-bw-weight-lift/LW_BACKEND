@@ -8,8 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 public interface UserWorkoutRepository extends PagingAndSortingRepository<UserWorkout, Long> {
 
-//@Transactional
-//@Modifying
-//@Query("INSERT INTO USER(workoutid)")
-//void addWorkoutToUser(long userid)
+//    @Transactional
+//    @Modifying
+//    @Query(value = "INSERT INTO userworkouts (workoutid, exerciesid) values(:workoutid, exerciesid)", nativeQuery = true)
+//    void insertExerciseIntoWorkouts(long workoutid, long exerciseid);
 }
