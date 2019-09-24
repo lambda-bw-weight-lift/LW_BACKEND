@@ -29,6 +29,7 @@ public class ExerciseController {
             @ApiResponse(code = 201, response = Exercise.class, message = "Exercise successfully updated."),
             @ApiResponse(code = 500, response = ErrorDetail.class, message = "Error updating exercise.")
     })
+    @PutMapping(value = "/{exerciseid}")
     public ResponseEntity<?> updateExerciseInfo(@RequestBody Exercise exercise, @PathVariable long exerciseid) {
         exerciseService.update(exercise, exerciseid);
         return new ResponseEntity<>(HttpStatus.OK);
