@@ -14,8 +14,13 @@ public interface UserWorkoutRepository extends PagingAndSortingRepository<UserWo
 //@Query("INSERT INTO USER(workoutid)")
 //void addWorkoutToUser(long userid)
 
-    @Transactional
-    @Modifying
-    @Query(value = "INSERT INTO userworkouts(workoutid, exercise) values (:workoutid, :exercise)", nativeQuery = true)
-    void insertExerciseIntoWorkout(long workoutid, Exercise exercise);
+//     @Transactional
+//     @Modifying
+//     @Query(value = "INSERT INTO userworkouts(workoutid, exercise) values (:workoutid, :exercise)", nativeQuery = true)
+//     void insertExerciseIntoWorkout(long workoutid, Exercise exercise);
+
+  //    @Transactional
+//    @Modifying
+//    @Query(value = "INSERT INTO userworkouts (workoutid, exerciesid) values(:workoutid, exerciesid)", nativeQuery = true)
+//    void insertExerciseIntoWorkouts(long workoutid, long exerciseid);
 }

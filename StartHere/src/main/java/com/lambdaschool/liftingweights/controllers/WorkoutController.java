@@ -96,6 +96,7 @@ public class WorkoutController {
         logger.trace(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed.");
 
         workoutService.saveExerciseToWorkout(workoutid, newExercise);
+
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 

@@ -14,7 +14,7 @@ public interface UserWorkoutService {
 
     UserWorkout saveWorkout(UserWorkout workout, String username);
 
-    void saveExerciseToWorkout(long workoutid, Exercise exercise);
+    Exercise saveExerciseToWorkout(long workoutid, Exercise exercise);
 
     UserWorkout update(UserWorkout workout, long id);
 

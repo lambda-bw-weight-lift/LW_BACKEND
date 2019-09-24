@@ -104,9 +104,9 @@ public class SeedData implements CommandLineRunner
         User u5 = new User("Jane", "password", users);
         userService.save(u5);
 
-        Exercise e1 = new Exercise("Bench Press", "165 Lbs", "3 x 10 Reps", "1 Minute Rest", "Chest Region");
-        Exercise e2 = new Exercise("Squat", "200 Lbs", "3 x 5 Reps", "1 Minute Rest", "Legs Region");
-        Exercise e3 = new Exercise("Abs", "Bodyweight", "3 x 10 Reps", "1 Minute Rest", "Core Region");
+//        Exercise e1 = new Exercise("Bench Press", "165 Lbs", "3 x 10 Reps", "1 Minute Rest", "Chest Region");
+//        Exercise e2 = new Exercise("Squat", "200 Lbs", "3 x 5 Reps", "1 Minute Rest", "Legs Region");
+//        Exercise e3 = new Exercise("Abs", "Bodyweight", "3 x 10 Reps", "1 Minute Rest", "Core Region");
 
 //        List<UserWorkout> workout1 = new ArrayList<>();
 
