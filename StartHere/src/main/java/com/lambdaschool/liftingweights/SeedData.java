@@ -2,6 +2,7 @@ package com.lambdaschool.liftingweights;
 
 import com.lambdaschool.liftingweights.models.*;
 import com.lambdaschool.liftingweights.services.ExerciseService;
+import com.lambdaschool.liftingweights.repository.UserWorkoutRepository;
 import com.lambdaschool.liftingweights.services.RoleService;
 import com.lambdaschool.liftingweights.services.UserService;
 import com.lambdaschool.liftingweights.services.UserWorkoutService;
@@ -71,16 +72,27 @@ public class SeedData implements CommandLineRunner
         ArrayList<UserRoles> users = new ArrayList<>();
         users.add(new UserRoles(new User(), r2));
         User u3 = new User("barnbarn", "ILuvM4th!", users);
+
         u3.getUseremails()
           .add(new Useremail(u3, "barnbarn@email.local"));
        u3.getUserworkouts()
                .add(new UserWorkout(u3,"Legs and Back", "01:20:30"));
+       UserWorkout w1 = new UserWorkout(u3,"Weights", "01:20:30");
+//       w1.getExercises().add(new Exercise("Curls", "25lbs", "12", "25second", "arms"));
         u3.getUserworkouts()
-                .add(new UserWorkout(u3,"Weights", "01:20:30"));
+                .add(w1);
+//        List<UserWorkout> workouts = u3.getUserworkouts();
+//        workouts.get(workouts.size()-1).getExercises().add(new Exercise("Curls", "25lbs", "12", "25second", "arms"));
+
+
+
 
 
 
         userService.save(u3);
+//        List <UserWorkout> workouts = workoutService.findAll();
+//        UserWorkout w = workouts.get(workouts.size()-1);
+//       workoutService.saveExerciseToWorkout(w.getWorkoutid(), new Exercise("Curls", "25lbs", "12", "25second", "arms"));
 
         users = new ArrayList<>();
         users.add(new UserRoles(new User(), r2));
