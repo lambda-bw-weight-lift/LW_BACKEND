@@ -32,6 +32,7 @@ public class UserWorkout extends Auditable {
     @JsonIgnoreProperties("userworkout")
     private List<Exercise> exercises = new ArrayList<>();
 
+
     public UserWorkout() {
 
     }
@@ -42,6 +43,14 @@ public class UserWorkout extends Auditable {
 
         this.workoutlength = workoutlength;
         this.user = user;
+    }
+
+    public List<Exercise> getExercises() {
+        return exercises;
+    }
+
+    public void setExercises(List<Exercise> exercises) {
+        this.exercises = exercises;
     }
 
     public long getWorkoutid() {
@@ -83,4 +92,5 @@ public class UserWorkout extends Auditable {
     public void setUser_id(User user) {
         this.user = user;
     }
+
 }

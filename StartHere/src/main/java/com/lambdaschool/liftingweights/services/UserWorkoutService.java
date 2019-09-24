@@ -17,4 +17,7 @@ public interface UserWorkoutService {
 
     UserWorkout update(UserWorkout customer, long id);
 
+    UserWorkout findById(long workoutid);
+
+
 }

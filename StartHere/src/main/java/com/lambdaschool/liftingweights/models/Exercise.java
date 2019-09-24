@@ -36,17 +36,27 @@ public class Exercise {
     @JoinColumn(name = "userid",
             nullable = false)
     @JsonIgnoreProperties("exercises")
+
     private User user;
 
     public Exercise() {
     }
 
-    public Exercise(String exercisename, String weightlifted, String reps, String restperiod, String exerciseregion, UserWorkout userworkout) {
+    public Exercise(String exercisename, String weightlifted, String reps, String restperiod, String exerciseregion) {
         this.exercisename = exercisename;
         this.weightlifted = weightlifted;
         this.reps = reps;
         this.restperiod = restperiod;
         this.exerciseregion = exerciseregion;
+
+    }
+
+    public UserWorkout getUserworkout() {
+        return userworkout;
+    }
+
+    public void setUserworkout(UserWorkout userworkout) {
+        this.userworkout = userworkout;
     }
 
     public long getExerciseid() {
