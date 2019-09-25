@@ -34,6 +34,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         // http.anonymous().disable();
         http.authorizeRequests()
+
                 .antMatchers("/",
                         "/h2-console/**",
                         "/swagger-resources/**",
@@ -59,19 +60,5 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 .disable();
     }
 
-//    @Bean
-//    @Primary
-//    public DefaultTokenServices tokenServices() {
-//        DefaultTokenServices defaultTokenServices = new DefaultTokenServices();
-//        defaultTokenServices.setTokenEnhancer(tokenEnhancer());
-//        return defaultTokenServices;
-//    }
-//
-//    @Bean
-//    public TokenEnhancer tokenEnhancer() {
-//
-//        return new CustomTokenEnhancer();
-//    }
-//
-//
+
 }

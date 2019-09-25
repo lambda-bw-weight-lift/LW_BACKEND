@@ -45,8 +45,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Autowired
     private PasswordEncoder encoder;
 
-//    @Autowired
-//    private TokenService tokenServices;
+
 
     @Override
     public void configure(ClientDetailsServiceConfigurer configurer) throws Exception
@@ -71,23 +70,10 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                  .authenticationManager(authenticationManager);
 
         endpoints.pathMapping("/oauth/token", "/login");
-//        endpoints.tokenEnhancer(tokenEnhancer());
+
     }
 
 
-//    @Bean
-//    @Primary
-//    public AuthorizationServerTokenServices tokenServices() {
-//        DefaultTokenServices tokenServices = new DefaultTokenServices();
-//        tokenServices.setTokenEnhancer(tokenEnhancer());
-//        return tokenServices;
-//    }
-//
-//    @Bean
-//    public TokenEnhancer tokenEnhancer() {
-//
-//        return new CustomTokenEnhancer();
-//    }
 
 
 }

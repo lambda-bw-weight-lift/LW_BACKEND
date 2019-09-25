@@ -35,6 +35,7 @@ public class UserController
     @Autowired
     private UserService userService;
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping(value = "/users",
                 produces = {"application/json"})
     public ResponseEntity<?> listAllUsers(HttpServletRequest request)
@@ -62,7 +63,7 @@ public class UserController
     }
 
 
- @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping(value = "/user/name/{userName}",
                 produces = {"application/json"})
     public ResponseEntity<?> getUserByName(HttpServletRequest request,
@@ -77,6 +78,7 @@ public class UserController
     }
 
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping(value = "/getusername",
                 produces = {"application/json"})
     @ResponseBody
@@ -90,7 +92,8 @@ public class UserController
 
 
     @ApiOperation("Registers a user")
-            @PostMapping(value = "/register",
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PostMapping(value = "/register",
                  consumes = {"application/json"},
                  produces = {"application/json"})
     public ResponseEntity<?> addNewUser(HttpServletRequest request, @Valid
@@ -118,7 +121,7 @@ public class UserController
         return new ResponseEntity<>(null, responseHeaders, HttpStatus.CREATED);
     }
 
-
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PutMapping(value = "/user/{id}")
     public ResponseEntity<?> updateUser(HttpServletRequest request,
                                         @RequestBody
