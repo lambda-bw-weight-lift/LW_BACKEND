@@ -200,12 +200,10 @@ public class UserServiceImpl implements UserDetailsService, UserService
     }
 
     @Override
+
     public User findByUserName(String username) {
 
-
         User newUser = userrepos.findByUsername(username);
-
-
 
         return newUser;
     }
