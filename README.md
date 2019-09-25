@@ -51,16 +51,16 @@ Method | Endpoint | Description
 ------ | -------- | -----------
 GET | `/workouts/all` | returns all previous workouts
 GET | `/workouts/{workoutid}` | returns workout with specified id
-POST | `/workouts/current` | creates a new workout
+POST | `/workouts/current/{username}` | creates a new workout
 POST | `/workouts/{workoutid}` | adds a new exercise to the specified workout
 
 ### Accepted Workouts Schema
 
-#### POST `/workouts/current`
+#### POST `/workouts/current/{username}`
 ```
 {
 	"workoutname": "Pull-ups & chin-ups",
-	"workoutlength": "2 minutes"
+	"workoutlength": "50 minutes - Not required data"
 }
 ```
 
