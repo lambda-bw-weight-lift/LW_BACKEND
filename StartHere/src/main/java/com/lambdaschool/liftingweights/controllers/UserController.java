@@ -14,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -179,5 +180,13 @@ public class UserController
         userService.addUserRole(userid, roleid);
 
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @GetMapping(value = "/getuserdata", produces = {"application/json"})
+    public ResponseEntity<?> findByAuth() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User currentUser = userService.findByUsername(authentication.getName());
+
+        return new ResponseEntity<>(currentUser, HttpStatus.OK);
     }
 }

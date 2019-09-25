@@ -24,4 +24,6 @@ public interface UserService
     void deleteUserRole(long userid, long roleid);
 
     void addUserRole(long userid, long roleid);
+
+    User findByUsername(String username);
 }

@@ -72,7 +72,7 @@ public class WorkoutController {
     }
 
 
-    //  POST /workouts/current - create a new workout 201 & 500
+    //  POST /workouts/current/{username} - create a new workout 201 & 500
     @ApiOperation(value = "Creates a new Workout", response = UserWorkout.class)
     @ApiResponses(value = {
             @ApiResponse(code = 201, response = UserWorkout.class, message = "It worked!"),
@@ -80,8 +80,8 @@ public class WorkoutController {
     })
     @PostMapping(value = "/current/{username}", produces = {"application/json"})
     public ResponseEntity<?> createNewWorkout(@Valid @RequestBody UserWorkout newWorkout, @PathVariable String username) {
-        workoutService.saveWorkout(newWorkout, username);
-        return new ResponseEntity<>( null, HttpStatus.CREATED);
+        UserWorkout uw = workoutService.saveWorkout(newWorkout, username);
+        return new ResponseEntity<>( uw, HttpStatus.CREATED);
     }
 
 
@@ -97,9 +97,9 @@ public class WorkoutController {
                                                    @PathVariable long workoutid, HttpServletRequest request) {
         logger.trace(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed.");
 
-        workoutService.saveExerciseToWorkout(workoutid, newExercise);
+        Exercise saveExercise = workoutService.saveExerciseToWorkout(workoutid, newExercise);
 
-        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(saveExercise, HttpStatus.ACCEPTED);
     }
 
 }

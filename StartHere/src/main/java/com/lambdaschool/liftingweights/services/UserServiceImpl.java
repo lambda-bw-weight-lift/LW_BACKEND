@@ -198,4 +198,10 @@ public class UserServiceImpl implements UserDetailsService, UserService
             throw new ResourceFoundException("Role and User Combination Already Exists");
         }
     }
+
+    @Override
+    public User findByUsername(String username) {
+        User newUser = userrepos.findByUsername(username);
+        return newUser;
+    }
 }
