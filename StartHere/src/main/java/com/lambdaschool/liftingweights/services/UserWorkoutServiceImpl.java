@@ -55,6 +55,7 @@ public class UserWorkoutServiceImpl implements UserWorkoutService {
         uw.setUserid(user);
         uw.setWorkoutname(workout.getWorkoutname());
         uw.setWorkoutlength(workout.getWorkoutlength());
+        uw.setDate(workout.getDate());
 
 
         return  userworkoutrepos.save(uw);
