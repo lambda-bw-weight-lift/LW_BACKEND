@@ -109,7 +109,7 @@ public class UserServiceImpl implements UserDetailsService, UserService
         {
 
             newUser.getUserworkouts()
-                    .add(new UserWorkout(newUser, uw.getWorkoutname(), uw.getWorkoutlength()));
+                    .add(new UserWorkout(newUser, uw.getWorkoutname(), uw.getWorkoutlength(), uw.getDate()));
 
         }
 
@@ -200,8 +200,11 @@ public class UserServiceImpl implements UserDetailsService, UserService
     }
 
     @Override
-    public User findByUsername(String username) {
+
+    public User findByUserName(String username) {
+
         User newUser = userrepos.findByUsername(username);
+
         return newUser;
     }
 }

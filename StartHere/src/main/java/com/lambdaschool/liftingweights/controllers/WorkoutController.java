@@ -80,7 +80,9 @@ public class WorkoutController {
     })
     @PostMapping(value = "/current/{username}", produces = {"application/json"})
     public ResponseEntity<?> createNewWorkout(@Valid @RequestBody UserWorkout newWorkout, @PathVariable String username) {
-        UserWorkout uw = workoutService.saveWorkout(newWorkout, username);
+
+        UserWorkout uw =  workoutService.saveWorkout(newWorkout, username);
+      
         return new ResponseEntity<>( uw, HttpStatus.CREATED);
     }
 

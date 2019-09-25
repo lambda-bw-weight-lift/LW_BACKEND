@@ -182,11 +182,12 @@ public class UserController
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @GetMapping(value = "/getuserdata", produces = {"application/json"})
-    public ResponseEntity<?> findByAuth() {
+    @GetMapping( value ="/getuserdata" , produces = {"application/json"})
+    public ResponseEntity<?> findByAuth(HttpServletRequest request)
+    {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        User currentUser = userService.findByUsername(authentication.getName());
+        User currentUser = userService.findByUserName(authentication.getName());
 
-        return new ResponseEntity<>(currentUser, HttpStatus.OK);
+        return new ResponseEntity<>(currentUser, HttpStatus.CREATED);
     }
 }

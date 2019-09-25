@@ -25,5 +25,6 @@ public interface UserService
 
     void addUserRole(long userid, long roleid);
 
-    User findByUsername(String username);
+    User findByUserName(String username);
+
 }
