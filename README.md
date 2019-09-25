@@ -11,7 +11,7 @@ Front End: TBD
 Method | Endpoint | Description 
 ------ | -------- | -----------
 POST | `/users/register` | accepts `username`, `password`, and creates a  `user`
-POST | `/login` | accepts `username` and `password` and returns a token, id #, and name if username and password match
+POST | `/login` | accepts `username` and `password` and returns a token, id #, and username if username and password match
 
 
 ### Accepted Register & Login Schema
