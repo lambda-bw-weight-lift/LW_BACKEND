@@ -80,8 +80,8 @@ public class SeedData implements CommandLineRunner
         u3.getUseremails()
                 .add(new Useremail(u3, "barnbarn@email.local"));
         u3.getUserworkouts()
-                .add(new UserWorkout(u3,"Legs and Back", "01:20:30"));
-        UserWorkout w1 = new UserWorkout(u3,"Weights", "01:20:30");
+                .add(new UserWorkout(u3,"Legs and Back", "01:20:30", "01/23/2019"));
+        UserWorkout w1 = new UserWorkout(u3,"Weights", "01:20:30","01/23/2019" );
 //       w1.getExercises().add(new Exercise("Curls", "25lbs", "12", "25second", "arms"));
         u3.getUserworkouts()
                 .add(w1);

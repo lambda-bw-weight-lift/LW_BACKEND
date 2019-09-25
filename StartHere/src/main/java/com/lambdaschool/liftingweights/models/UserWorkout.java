@@ -16,7 +16,7 @@ public class UserWorkout extends Auditable {
 
     private String workoutname;
 
-    Date date = new Date();
+    private String date;
 
     private String workoutlength;
 
@@ -38,9 +38,9 @@ public class UserWorkout extends Auditable {
     }
 
 
-    public UserWorkout( User user, String workoutname, String workoutlength) {
+    public UserWorkout( User user, String workoutname, String workoutlength, String date) {
         this.workoutname = workoutname;
-
+        this.date = date;
         this.workoutlength = workoutlength;
         this.user = user;
     }
@@ -73,11 +73,11 @@ public class UserWorkout extends Auditable {
         this.workoutname = workoutname;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

@@ -26,10 +26,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 .stateless(false);
     }
 
-    //@Override
-//public void configure(ResourceServerSecurityConfigurer config) {
-//    config.tokenServices(tokenServices());
-//}
+
     @Override
     public void configure(HttpSecurity http) throws Exception {
         // http.anonymous().disable();
