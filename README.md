@@ -2,7 +2,7 @@
 
 TDD - https://docs.google.com/document/d/1GZSK3VbwwB-0ZrGDnn95W36WeZnucJy_4mmDeHqRpUs/edit
 
-Base URL: https://weight-lifting-journal-bw.herokuapp.com/
+Base URL: https://lifting-weights-java.herokuapp.com/
 
 Front End: TBD
 
@@ -10,8 +10,8 @@ Front End: TBD
 
 Method | Endpoint | Description 
 ------ | -------- | -----------
-POST | `/auth/register` | accepts `username`, `password`, and creates a  `user`, and returns an id number
-POST | `/auth/login` | accepts `username` and `password` and returns a message welcoming user, and a token if username and passwords match
+POST | `/users/register` | accepts `username`, `password`, and creates a  `user`
+POST | `/login` | accepts `username` and `password` and returns a token, id #, and username if username and password match
 
 
 ### Accepted Register & Login Schema
@@ -27,8 +27,8 @@ POST | `/auth/login` | accepts `username` and `password` and returns a message w
 
 Method | Endpoint | Description
 ------ | -------- | -----------
-PUT | `/exercise/{exerciseid}` | returns the updated exercise
-DELETE | `/exercise/{exerciseid}` | returns whether or not the exercise has been deleted
+PUT | `/exercise/{exerciseid}` | updates the exercise with the id
+DELETE | `/exercise/{exerciseid}` | deletes the exercise with the id
 
 ### Accepted Exercise Schema
 

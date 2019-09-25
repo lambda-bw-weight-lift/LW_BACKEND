@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -25,6 +26,7 @@ public class RolesController
     @Autowired
     RoleService roleService;
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping(value = "/roles",
                 produces = {"application/json"})
     public ResponseEntity<?> listRoles(HttpServletRequest request)
@@ -37,6 +39,7 @@ public class RolesController
     }
 
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping(value = "/role/{roleId}",
                 produces = {"application/json"})
     public ResponseEntity<?> getRoleById(HttpServletRequest request,
@@ -50,6 +53,7 @@ public class RolesController
         return new ResponseEntity<>(r, HttpStatus.OK);
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping(value = "/role/name/{roleName}",
                 produces = {"application/json"})
     public ResponseEntity<?> getRoleByName(HttpServletRequest request,
