@@ -67,6 +67,7 @@ public class User extends Auditable
         this.userroles = userRoles;
     }
 
+
     public List<UserWorkout> getUserworkouts() {
         return userworkouts;
     }
