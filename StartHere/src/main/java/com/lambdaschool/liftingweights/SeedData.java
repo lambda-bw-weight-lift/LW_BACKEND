@@ -1,6 +1,7 @@
 package com.lambdaschool.liftingweights;
 
 import com.lambdaschool.liftingweights.models.*;
+import com.lambdaschool.liftingweights.repository.UserRepository;
 import com.lambdaschool.liftingweights.services.ExerciseService;
 import com.lambdaschool.liftingweights.repository.UserWorkoutRepository;
 import com.lambdaschool.liftingweights.services.RoleService;
@@ -29,6 +30,9 @@ public class SeedData implements CommandLineRunner
 
     @Autowired
     UserWorkoutService workoutService;
+
+    @Autowired
+    UserRepository userrepos;
 
 
     @Override
@@ -94,15 +98,15 @@ public class SeedData implements CommandLineRunner
 //        UserWorkout w = workouts.get(workouts.size()-1);
 //       workoutService.saveExerciseToWorkout(w.getWorkoutid(), new Exercise("Curls", "25lbs", "12", "25second", "arms"));
 
-        users = new ArrayList<>();
-        users.add(new UserRoles(new User(), r2));
-        User u4 = new User("Bob", "password", users);
-        userService.save(u4);
-
-        users = new ArrayList<>();
-        users.add(new UserRoles(new User(), r2));
-        User u5 = new User("Jane", "password", users);
-        userService.save(u5);
+//        users = new ArrayList<>();
+//        users.add(new UserRoles(new User(), r2));
+//        User u4 = new User("Bob", "password", users);
+//        userrepos.save(u4);
+//
+//        users = new ArrayList<>();
+//        users.add(new UserRoles(new User(), r2));
+//        User u5 = new User("Jane", "password", users);
+//        userrepos.save(u5);
 
 //        Exercise e1 = new Exercise("Bench Press", "165 Lbs", "3 x 10 Reps", "1 Minute Rest", "Chest Region");
 //        Exercise e2 = new Exercise("Squat", "200 Lbs", "3 x 5 Reps", "1 Minute Rest", "Legs Region");
