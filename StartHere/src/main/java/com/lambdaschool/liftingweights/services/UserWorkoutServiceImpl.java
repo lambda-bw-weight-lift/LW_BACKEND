@@ -106,6 +106,12 @@ public class UserWorkoutServiceImpl implements UserWorkoutService {
 
         return userworkoutrepos.save(currentWorkout);
     }
-
+    @Override
+    public ArrayList<UserWorkout> findAll()
+    {
+        ArrayList<UserWorkout> list = new ArrayList<>();
+        userworkoutrepos.findAll().iterator().forEachRemaining(list::add);
+        return list;
+    }
 
 }
