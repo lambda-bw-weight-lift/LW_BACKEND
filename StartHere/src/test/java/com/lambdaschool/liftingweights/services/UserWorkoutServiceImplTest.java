@@ -1,13 +1,22 @@
 package com.lambdaschool.liftingweights.services;
 
+import com.lambdaschool.liftingweights.StartHereApplication;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import static junit.framework.TestCase.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = StartHereApplication.class)
+
+
 class UserWorkoutServiceImplTest {
+
 @Autowired
 private UserWorkoutServiceImpl userworkoutservice;
 
@@ -20,11 +29,11 @@ private UserWorkoutServiceImpl userworkoutservice;
     void findAllWorkouts() {
     }
 
-//    @Test
-//    void delete() {
-//        userworkoutservice.delete(13);
-//        assertEquals(1,userworkoutservice.findAll().size());
-//    }
+    @Test
+    void delete() {
+        userworkoutservice.delete(100);
+        assertEquals(1,userworkoutservice.findAll().size());
+    }
 
     @Test
     void saveWorkout() {
