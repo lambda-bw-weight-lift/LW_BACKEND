@@ -92,7 +92,6 @@ public class UserController
 
 
     @ApiOperation("Registers a user")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PostMapping(value = "/register",
                  consumes = {"application/json"},
                  produces = {"application/json"})
@@ -118,7 +117,7 @@ public class UserController
         responseHeaders.add("Authorization", "Basic " );
 
 
-        return new ResponseEntity<>(null, responseHeaders, HttpStatus.CREATED);
+        return new ResponseEntity<>(newuser, responseHeaders, HttpStatus.CREATED);
     }
 
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
