@@ -26,6 +26,13 @@ public class ExerciseServiceImpl implements ExerciseService {
         return myExercises;
     }
 
+    @Override
+    public List<Exercise> findAllExercises2() {
+        List<Exercise> myExercises = new ArrayList<>();
+        exerciserepos.findAll().iterator().forEachRemaining(myExercises::add);
+        return myExercises;
+    }
+
     @Transactional
     @Override
     public Exercise save(Exercise exercise) {
@@ -75,5 +82,11 @@ public class ExerciseServiceImpl implements ExerciseService {
         } else {
             throw new ResourceNotFoundException("Workout id " + id + " not found.");
         }
+    }
+
+    @Override
+    public Exercise findExerciseById(long id) {
+        return exerciserepos.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Exercise id " + id + " not found!"));
     }
 }
